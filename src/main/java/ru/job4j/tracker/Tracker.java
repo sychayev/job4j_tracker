@@ -62,10 +62,13 @@ public class Tracker {
         items[indexOf(id)] = null;
         boolean res = false;
         if (items[id] == null) {
-            int start = id + 1;
-            int distPost = id;
-            int length = size - id;
+            Item it = new Item();
+            it.setId(id);
+            int start = it + 1;
+            int distPost = it;
+            int length = size - it;
             items[size - 1] = null;
+            System.arraycopy(items[id],start,distPost,items[],length);
             size--;
             res = true;
         }
