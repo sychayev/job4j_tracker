@@ -50,12 +50,10 @@ public class Tracker {
     public boolean replace(int id, Item bugWithDesc) {
         int in = indexOf(id);
         boolean ret = false;
-        for (int i = items.length; i < size; i++) {
-            if (bugWithDesc.getId() == in) {
-                i = in;
-                ret = true;
-            }
+        if(in != -1){
+            items[in].setId(id);
         }
+
         return ret;
     }
 
