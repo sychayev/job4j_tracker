@@ -60,6 +60,15 @@ public class Tracker {
 
     public boolean delete(int id) {
         items[indexOf(id)] = null;
-        return true;
+        boolean res = false;
+        if (items[id] == null) {
+            int start = id + 1;
+            int distPost = id;
+            int length = size - id;
+            items[size - 1] = null;
+            size--;
+            res = true;
+        }
+        return res;
     }
 }
