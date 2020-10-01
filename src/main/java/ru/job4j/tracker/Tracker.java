@@ -46,22 +46,31 @@ public class Tracker {
         return i != -1 ? items[i] : null;
     }
 
-    public boolean replace(int id, Item bugWithDesc) {
-        int in = indexOf(id);
-        boolean ret = false;
-        if (in != -1) {
-            bugWithDesc.setId(id);
-            items[in] = bugWithDesc;
-            ret = true;
+//    public boolean replace(int id, Item bugWithDesc) {
+//        int in = indexOf(id);
+//        boolean ret = false;
+//        if (in != -1) {
+//            bugWithDesc.setId(id);
+//            items[in] = bugWithDesc;
+//            ret = true;
+//        }
+//        return ret;
+//
+//    }
+    @Override
+    public boolean replace(int id,Item bugWithDesc){
+        int index = indexOf(id);
+        boolean rsl = index != -1;
+        if (rsl) {
+            items[index] = bugWithDesc;
         }
-        return ret;
-
+        return rsl;
     }
-
-    public boolean delete(int id) {
+   @Override
+    public boolean delete(int id){
         int in = indexOf(id);
-        boolean res = false;
-        if (in != 1) {
+        boolean res = in != 1;
+        if(res){
             int start = in + 1;
             int distPost = in;
             int length = size - in;
@@ -72,6 +81,18 @@ public class Tracker {
         }
         return res;
     }
-
-
+//    public boolean delete(int id) {
+//        int in = indexOf(id);
+//        boolean res = false;
+//        if (in != 1) {
+//            int start = in + 1;
+//            int distPost = in;
+//            int length = size - in;
+//            items[size - 1] = null;
+//            size--;
+//            System.arraycopy(items, start, items, distPost, length);
+//            res = true;
+//        }
+//        return res;
+//    }
 }
