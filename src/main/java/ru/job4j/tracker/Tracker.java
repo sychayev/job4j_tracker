@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Tracker {
 
-    private final Item[] items = new Item[100];
+    public Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
 
@@ -30,7 +30,7 @@ public class Tracker {
         return Arrays.copyOf(rsl, count);
     }
 
-    private int indexOf(int id) {
+    public int indexOf(int id) {
         int rsl = -1;
         for (int i = 0; i < size; i++) {
             if (items[i].getId() == id) {
@@ -40,7 +40,6 @@ public class Tracker {
         }
         return rsl;
     }
-
 
     public Item findById(int id) {
         int i = indexOf(id);
@@ -56,6 +55,7 @@ public class Tracker {
             ret = true;
         }
         return ret;
+
     }
 
     public boolean delete(int id) {
@@ -67,9 +67,11 @@ public class Tracker {
             int length = size - in;
             items[size - 1] = null;
             size--;
-            System.arraycopy(items,start,items,distPost,length);
+            System.arraycopy(items, start, items, distPost, length);
             res = true;
         }
         return res;
     }
+
+
 }
