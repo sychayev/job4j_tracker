@@ -26,7 +26,6 @@ public class StartUI extends  Tracker{
                 int id = in.nextInt();
                 Item item = new Item();
 //                track.replace (name,item);
-
                 if(track.replace(id,item)){
                     System.out.println("You replaced item.");
                 }else{
@@ -34,9 +33,11 @@ public class StartUI extends  Tracker{
                 }
             }else if(select == 3){
                 System.out.println("Delete item");
-//                boolean id = in.nextBoolean();
-//                track.delete(0);
-                if (track.delete(1)){
+                int i = in.nextInt();
+                boolean id = in.nextBoolean();
+                track.delete(1);
+                track.findById(i);
+                if (i != 0 ){
                     track.delete(1);
                 }else{
                     track.delete(0);
