@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Tracker {
 
-    public Item[] items = new Item[100];
+    private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
 
@@ -95,4 +95,5 @@ public class Tracker {
 //        }
 //        return res;
 //    }
+
 }
