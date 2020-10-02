@@ -6,46 +6,55 @@ public class StartUI extends Tracker {
         boolean run = true;
         while (run) {
             this.showMenu();
-            String msg = "Enter id";
             int select = Integer.valueOf(in.askStr(msg));
             if (select == 0) {
                 System.out.println("=== Create a new Item ====");
-                System.out.print("Enter name: ");
+//                System.out.print("Enter name: ");
+                String msg = "Enter id";
                 String name = in.askStr(msg);
                 Item item = new Item();
                 track.add(item);
-            } else if (select == 1) {
+            }
+            else if (select == 1) {
                 System.out.println(" Show all items");
+                String msg = "Enter name";
                 String name = in.askStr(msg);
                 track.findAll();
-            } else if (select == 2) {
+            }
+            else if (select == 2) {
                 System.out.println("Edit item");
+                String msg = "Enter id";
                 int id = in.askInt(msg);
                 Item item = new Item();
                 String name = in.askStr(msg);
                 item.setName(name);
                 if (track.replace(id, item)) {
                     System.out.println("You replaced item.");
-                } else {
+                }
+                else {
                     System.out.println("You did not replace your item!!");
                 }
-            } else if (select == 3) {
+            }
+            else if (select == 3) {
                 System.out.println("Delete item");
+                String msg = "Enter item";
                 int i = in.askInt(msg);
-//                boolean id = in.nextBoolean();
-                track.delete(1);
+//                boolean id = in.(1);
                 track.findById(i);
-                if (i != 0) {
+                if (track.delete(i) == ) {
                     track.delete(1);
                 } else {
                     track.delete(0);
                 }
-            } else if (select == 4) {
+            }
+            else if (select == 4) {
                 System.out.println("Find item by Id");
+                String msg = "Enter id!";
                 int id = in.askInt(msg);
                 track.findById(id);
             } else if (select == 5) {
                 System.out.println("Find items by name");
+                String msg = "Enter name!";
                 String name = in.askStr(msg);
                 track.findByName(name);
             } else if (select == 6) {
