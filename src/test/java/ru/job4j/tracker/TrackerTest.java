@@ -23,7 +23,7 @@ public class TrackerTest {
         Item item = new Item();
         item.setId(2);
         track.add(item);
-        Item[] res = track.findById(item.getId());
+        Item[] res = track.findAll();
         assertThat(res[0].getName(),is(item.getName()));
     }
 
