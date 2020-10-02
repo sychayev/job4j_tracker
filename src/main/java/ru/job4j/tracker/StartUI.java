@@ -6,10 +6,10 @@ public class StartUI extends Tracker {
         boolean run = true;
         while (run) {
             this.showMenu();
+//            String msg = "Enter id";
             int select = Integer.valueOf(in.askStr(msg));
             if (select == 0) {
                 System.out.println("=== Create a new Item ====");
-//                System.out.print("Enter name: ");
                 String msg = "Enter id";
                 String name = in.askStr(msg);
                 Item item = new Item();
@@ -39,12 +39,11 @@ public class StartUI extends Tracker {
                 System.out.println("Delete item");
                 String msg = "Enter item";
                 int i = in.askInt(msg);
-//                boolean id = in.(1);
                 track.findById(i);
-                if (track.delete(i) == ) {
-                    track.delete(1);
+                if (track.delete(i) ) {
+                    System.out.println("Find deleted this item");
                 } else {
-                    track.delete(0);
+                    System.out.println("You did not delete this item!");
                 }
             }
             else if (select == 4) {
