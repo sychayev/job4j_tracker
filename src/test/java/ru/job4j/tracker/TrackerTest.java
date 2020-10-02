@@ -7,6 +7,21 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
+
+    @Test
+    public void whenFindAll() {
+        Tracker track = new Tracker();
+        Item item = new Item();
+        track.add(item);
+        Item res = track.findAll(item.);
+        assertThat(item.);
+    }
+
+    @Test
+    public void whenFindById() {
+
+    }
+
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
