@@ -21,10 +21,9 @@ public class TrackerTest {
     public void whenFindById() {
         Tracker track = new Tracker();
         Item item = new Item();
-        item.setId(2);
         track.add(item);
-        Item[] res = track.findAll();
-        assertThat(res[0].getName(),is(item.getName()));
+        Item res = track.findById(item.getId());
+        assertThat(res.getName(),is(item.getName()));
     }
 
     @Test
