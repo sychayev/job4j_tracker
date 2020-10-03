@@ -1,52 +1,72 @@
 package ru.job4j.tracker;
 
 public class StartUI extends Tracker {
+
+    public static void createItem(Input input, Tracker track) {
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter id");
+        Item item = new Item(name);
+        track.add(item);
+    }
+
+    public static void showItem(Input input, Tracker track) {
+        System.out.println(" Show all items");
+        track.findAll();
+    }
+
+    public static void replaceItem(Input input, Tracker track) {
+        System.out.println("Edit item!");
+        int id = input.askInt("Which id");
+        String name = input.askStr("Enter id");
+        Item item = new Item(name);
+        item.setName(name);
+        if (track.replace(id, item)) {
+            System.out.println("You replaced item.");
+        } else {
+            System.out.println("You did not replace your item!!");
+        }
+    }
+
+    public static void deleteItem(Input input, Tracker track) {
+        System.out.println("Delete item");
+        int n = input.askInt("Enter item");
+        track.findById(n);
+        if (track.delete(n)) {
+            System.out.println("Find deleted this item");
+        } else {
+            System.out.println("You did not delete this item!");
+        }
+    }
+
+    public static void findItem(Input input, Tracker track) {
+        System.out.println("Find item by Id");
+        int id = input.askInt("Enter id!");
+        track.findById(id);
+    }
+
+    public static void findItemByName(Input input, Tracker track) {
+        System.out.println("Find items by name");
+        String name = input.askStr("Enter name!");
+        track.findByName(name);
+    }
+
     public void init(Input in, Tracker track) {
         boolean run = true;
         while (run) {
             this.showMenu();
             int select = Integer.valueOf(in.askStr("Select menu index:"));
             if (select == 0) {
-                System.out.println("=== Create a new Item ====");
-                String msg = "Enter id";
-                String name = in.askStr(msg);
-                Item item = new Item();
-                track.add(item);
+                StartUI.createItem(in, track);
             } else if (select == 1) {
-                System.out.println(" Show all items");
-                track.findAll();
+                StartUI.showItem(in, track);
             } else if (select == 2) {
-                System.out.println("Edit item");
-                String msg = "Enter id";
-                int id = in.askInt(msg);
-                Item item = new Item();
-                String name = in.askStr(msg);
-                item.setName(name);
-                if (track.replace(id, item)) {
-                    System.out.println("You replaced item.");
-                } else {
-                    System.out.println("You did not replace your item!!");
-                }
+                StartUI.replaceItem(in, track);
             } else if (select == 3) {
-                System.out.println("Delete item");
-                String msg = "Enter item";
-                int i = in.askInt(msg);
-                track.findById(i);
-                if (track.delete(i)) {
-                    System.out.println("Find deleted this item");
-                } else {
-                    System.out.println("You did not delete this item!");
-                }
+                StartUI.deleteItem(in, track);
             } else if (select == 4) {
-                System.out.println("Find item by Id");
-                String msg = "Enter id!";
-                int id = in.askInt(msg);
-                track.findById(id);
+                StartUI.findItem(in, track);
             } else if (select == 5) {
-                System.out.println("Find items by name");
-                String msg = "Enter name!";
-                String name = in.askStr(msg);
-                track.findByName(name);
+                StartUI.findItemByName(in, track);
             } else if (select == 6) {
                 run = false;
             }
@@ -69,8 +89,6 @@ public class StartUI extends Tracker {
         Input in = new ConsoleInput();
         Tracker track = new Tracker();
         new StartUI().init(in, track);
-
-
     }
 }
 
