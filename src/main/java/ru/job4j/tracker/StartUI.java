@@ -40,13 +40,20 @@ public class StartUI {
     public static void findItem(Input input, Tracker track) {
         System.out.println("Find item by Id");
         int id = input.askInt("Enter id!");
-        System.out.println(track.findById(id));
+        track.findById(id);
     }
 
     public static void findItemByName(Input input, Tracker track) {
         System.out.println("Find items by name");
         String name = input.askStr("Enter name!");
-        System.out.println( track.findByName(name));
+        for (int i = 0; i < track.findByName(name).length; i++) {
+            if (i <= 0) {
+                System.out.println(track.findByName(name));
+            } else {
+                System.out.println("There is not item like that!!");
+            }
+
+        }
     }
 
     public void init(Input in, Tracker track) {
