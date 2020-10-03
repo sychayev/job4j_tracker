@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
-public class StartUI extends Tracker {
-    Item it[] = items;
+public class StartUI  {
     public static void createItem(Input input, Tracker track) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter id");
@@ -52,7 +51,6 @@ public class StartUI extends Tracker {
 
     public void init(Input in, Tracker track) {
         boolean run = true;
-        Item it[] = items;
         while (run) {
             this.showMenu();
             int select = Integer.valueOf(in.askStr("Select menu index:"));
