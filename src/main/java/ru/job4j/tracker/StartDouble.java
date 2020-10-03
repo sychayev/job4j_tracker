@@ -11,7 +11,7 @@ public class StartDouble extends Tracker {
                 System.out.println("=== Create a new Item ====");
                 String msg = "Enter id";
                 String name = in.askStr(msg);
-                Item item = new Item();
+                Item item = new Item(name);
                 track.add(item);
                 StartUI.createItem(in, track);
             } else if (select == 1) {
@@ -27,8 +27,8 @@ public class StartDouble extends Tracker {
                 System.out.println("Edit item");
                 String msg = "Enter id";
                 int id = in.askInt(msg);
-                Item item = new Item();
                 String name = in.askStr(msg);
+                Item item = new Item(name);
                 item.setName(name);
                 if (track.replace(id, item)) {
                     System.out.println("You replaced item.");
