@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class StartUI  {
+public class StartUI {
     public static void createItem(Input input, Tracker track) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter id");
@@ -40,13 +40,13 @@ public class StartUI  {
     public static void findItem(Input input, Tracker track) {
         System.out.println("Find item by Id");
         int id = input.askInt("Enter id!");
-        track.findById(id);
+        System.out.println(track.findById(id));
     }
 
     public static void findItemByName(Input input, Tracker track) {
         System.out.println("Find items by name");
         String name = input.askStr("Enter name!");
-        track.findByName(name);
+        System.out.println( track.findByName(name));
     }
 
     public void init(Input in, Tracker track) {
