@@ -8,6 +8,7 @@ public class StartUI {
         track.add(item);
     }
 
+
     public static void showItem(Input input, Tracker track) {
         System.out.println(" Show all items");
         Item[] items = track.findAll();
