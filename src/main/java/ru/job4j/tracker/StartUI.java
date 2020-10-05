@@ -12,7 +12,7 @@ public class StartUI {
     public static void showItem(Input input, Tracker track) {
         System.out.println(" Show all items");
         Item[] items = track.findAll();
-        for (int i = 0; i <= items.length; i++) {
+        for (int i = 0; i < items.length; i++) {
             System.out.println(items[i]);
         }
     }
@@ -44,8 +44,8 @@ public class StartUI {
     public static void findItem(Input input, Tracker track) {
         System.out.println("Find item by Id");
         int id = input.askInt("Enter id!");
-        Item item  = track.findById(id);
-        if(item!=null){
+        Item item = track.findById(id);
+        if (item != null) {
             System.out.println(item);
         }
     }
@@ -54,15 +54,15 @@ public class StartUI {
         System.out.println("Find items by name");
         String name = input.askStr("Enter name!");
         Item[] items = track.findByName(name);
-
-        for (int i = 0; i < items.length; i++) {
-            if (items.length > 0) {
+        if (items.length > 0) {
+            for (int i = 0; i < items.length; i++) {
                 System.out.println(items[i]);
-            } else {
-                System.out.println("There is not item like that!!");
             }
+        } else {
+            System.out.println("There is not item like that!!");
         }
     }
+
 
     public void init(Input in, Tracker track) {
         boolean run = true;
