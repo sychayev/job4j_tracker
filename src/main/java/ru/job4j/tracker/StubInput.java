@@ -7,6 +7,7 @@ public class StubInput implements Input {
         this.answers=answers;
     }
     @Override
+
     public String askStr(String question) {
         return question;
     }
