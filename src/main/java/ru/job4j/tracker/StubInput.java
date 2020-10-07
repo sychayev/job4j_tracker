@@ -8,7 +8,7 @@ public class StubInput implements Input {
     }
     @Override
     public String askStr(String question) {
-        return null;
+        return question;
     }
 
     @Override
