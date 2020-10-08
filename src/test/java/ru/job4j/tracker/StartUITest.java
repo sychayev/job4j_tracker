@@ -24,7 +24,7 @@ public class StartUITest  {
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
-                item.getId() + // id сохраненной заявки в объект tracker.
+               String.valueOf(item), item.getId() +
                 "replaced item"
         };
         StartUI.replaceItem(new StubInput(answers), tracker);
@@ -37,7 +37,7 @@ public class StartUITest  {
         Item item = new Item("new item");
         tracker.add(item);
         String[] deletedItems = {
-                item.getId() + // id сохраненной заявки в объект tracker.
+                String.valueOf(item.getId()) +
                 "deleted item"
         };
         StartUI.deleteItem(new StubInput(deletedItems), tracker);
