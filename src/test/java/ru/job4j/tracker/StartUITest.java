@@ -3,12 +3,12 @@ package ru.job4j.tracker;
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static sun.jvm.hotspot.runtime.VMOps.Exit;
 
 public class StartUITest {
-
     @Test
     public void whenCreateItem() {
         Input in = new StubInput(new String[]{"0",
@@ -21,8 +21,6 @@ public class StartUITest {
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("item"));
     }
-
-
 
     @Test
     public void whenAddItem() {
@@ -41,7 +39,7 @@ public class StartUITest {
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
-                String.valueOf("C"),String.valueOf( item.getId())
+                String.valueOf( item.getId()),String.valueOf("C")
         };
         StartUI.replaceItem(new StubInput(answers), tracker);
         Item replaced = tracker.findById(item.getId());
@@ -58,7 +56,7 @@ public class StartUITest {
         };
         StartUI.deleteItem(new StubInput(deletedItems), tracker);
         Item delet = tracker.findById(item.getId());
-        assertThat(delet = null, is(delet));
+        assertThat(delet , is(nullValue()));
     }
 }
 }
