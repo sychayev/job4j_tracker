@@ -2,24 +2,6 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
-    public void init(Input in, Tracker track, UserAction[] actions) {
-        boolean run = true;
-        while (run) {
-            this.showMenu(actions);
-            int select = in.askInt("Select: ");
-            UserAction action = actions[select];
-            run = action.execute(in, track);
-        }
-
-    }
-
-    private void showMenu(UserAction[] actions) {
-        System.out.println("Menu");
-        for (int i = 0; i < actions.length; i++) {
-            System.out.println(i + "." + actions[i].name());
-        }
-    }
-
     public void init(Input in, Tracker track) {
         boolean run = true;
         while (run) {
@@ -46,7 +28,7 @@ public class StartUI {
                 find.name();
                 find.execute(in, track);
             } else if (select == 5) {
-                FindItemById findIByName = new FindItemById();
+                FindItemByName findIByName = new FindItemByName();
                 findIByName.name();
                 findIByName.execute(in, track);
             } else if (select == 6) {
@@ -71,9 +53,14 @@ public class StartUI {
         Input in = new ConsoleInput();
         Tracker track = new Tracker();
         UserAction[] actions = {
-                new CreateAction()
+                new CreateAction(),
+                new CreateItem(),
+                new ShowItem(),
+                new ReplaceItem(),
+                new DeleteAction(),
+                new FindItem(),
+                new FindItemByName()
         };
-        new StartUI().init(in, track, actions);
     }
 }
 
