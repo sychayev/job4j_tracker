@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 public class StartUI {
+
     public void init(Input in,Tracker  track,UserAction[] actions){
         boolean run = true;
         while(run){
@@ -77,7 +78,6 @@ public class StartUI {
             System.out.println("There is not item like that!!");
         }
     }
-
 
     public void init(Input in, Tracker track) {
         boolean run = true;

@@ -55,33 +55,8 @@ public class Tracker {
             ret = true;
         }
         return ret;
-
     }
 
-    //    @Override
-//    public boolean replace(int id,Item bugWithDesc){
-//        int index = indexOf(id);
-//        boolean rsl = index != -1;
-//        if (rsl) {
-//            items[index] = bugWithDesc;
-//        }
-//        return rsl;
-//    }
-//   @Override
-//    public boolean delete(int id){
-//        int in = indexOf(id);
-//        boolean res = in != 1;
-//        if(res){
-//            int start = in + 1;
-//            int distPost = in;
-//            int length = size - in;
-//            items[size - 1] = null;
-//            size--;
-//            System.arraycopy(items, start, items, distPost, length);
-//            res = true;
-//        }
-//        return res;
-//    }
     public boolean delete(int id) {
         int in = indexOf(id);
         boolean res = false;
