@@ -10,7 +10,6 @@ public class StartUI {
             UserAction action = actions[select];
             run = action.execute(in, track);
         }
-
     }
 
     private void showMenu(UserAction[] actions) {
@@ -26,13 +25,15 @@ public class StartUI {
         UserAction[] actions = {
                 new CreateAction(),
                 new CreateItem(),
-                new  ShowItem(),
+                new ShowItem(),
                 new ReplaceItem(),
-                new  DeleteAction(),
+                new DeleteAction(),
                 new FindItem(),
                 new FindItemByName(),
                 new ExitAction()
         };
+        StartUI s = new StartUI();
+        s.init(in,track,actions);
     }
 }
 
