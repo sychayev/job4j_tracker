@@ -8,6 +8,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static sun.jvm.hotspot.runtime.VMOps.Exit;
 
+
 public class StartUITest {
     @Test
     public void whenCreateItem() {
@@ -16,7 +17,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(),
-                new Exit()
+                new ExitAction()
         };
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("item"));
@@ -33,7 +34,7 @@ public class StartUITest {
         );
         UserAction[] actions = {
                 new ReplaceItem(),
-                new Exit()
+                new ExitAction()
         };
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(replacedName));
@@ -49,11 +50,12 @@ public class StartUITest {
         );
         UserAction[] actions = {
                 new DeleteAction(),
-                new Exit()
+                new ExitAction()
         };
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
+
 //    @Test
 //    public void whenAddItem() {
 //        String[] answers = {"Fix PC"};
