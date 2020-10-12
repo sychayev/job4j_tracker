@@ -6,6 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+
 public class StartUITest {
     @Test
     public void whenCreateItem() {
@@ -29,7 +30,7 @@ public class StartUITest {
         item.getId();
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[]{"0","Replace item","1"}
+                new String[]{"0", "Replace item", "1"}
         );
         UserAction[] actions = {
                 new ReplaceItem(),
@@ -40,13 +41,47 @@ public class StartUITest {
     }
 
     @Test
+    public void whenFindAllAction() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Find all action items"));
+        item.getId();
+        String findAllAction = "All items";
+        Input in = new StubInput(
+                new String[]{"0", "Replace item", "1"}
+        );
+        UserAction[] actions = {
+                new FindAllAction(out),
+                new ExitAction()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll(), is(findAllAction));
+    }
+    @Test
+    public void FindByIdAction() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Find by id action item"));
+        item.getId();
+        String findByIdAction = "Id item";
+        Input in = new StubInput(
+                new String[]{"0", "Replace item", "1"}
+        );
+        UserAction[] actions = {
+                new FindAllAction(out),
+                new ExitAction()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()), is(findByIdAction));
+    }
+    @Test
     public void whenDeleteItem() {
-        Output out  = new StubOutput();
+        Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         item.getId();
         Input in = new StubInput(
-                new String[]{"0","Which delete item", "1"}
+                new String[]{"0", "Which delete item", "1"}
         );
         UserAction[] actions = {
                 new DeleteAction(),
