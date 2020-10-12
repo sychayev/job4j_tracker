@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 public class CreateItem implements UserAction{
+
     @Override
     public String name() {
         return "=== Create a new Item ====";
