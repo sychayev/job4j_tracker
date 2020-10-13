@@ -33,12 +33,12 @@ public class StartUI {
                 new FindAllAction(out),
                 new FindItemByName(out),
                 new FindByIdAction(out),
-                new CreateItem(),
-                new ShowItem(),
-                new ReplaceItem(),
-                new DeleteAction(),
-                new FindItem(),
-                new ExitAction()
+                new CreateItem(out),
+                new ShowItem(out),
+                new ReplaceItem(out),
+                new DeleteAction(out),
+                new FindItem(out),
+                new ExitAction(out)
         };
         new StartUI(out).init(in, track, actions);
     }
