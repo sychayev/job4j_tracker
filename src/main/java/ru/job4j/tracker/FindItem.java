@@ -13,12 +13,13 @@ public class FindItem implements  UserAction{
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        ConsoleOutput o = new ConsoleOutput();
         int id = input.askInt("Enter id!");
         Item item = tracker.findById(id);
         if (item != null) {
-            System.out.println(item);
+            o.println(item);
         }else {
-            System.out.println("There is not item with this id!");
+            o.println("There is not item with this id!");
         }
         return true;
     }
