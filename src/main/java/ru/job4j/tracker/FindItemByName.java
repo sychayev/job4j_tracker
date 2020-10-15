@@ -14,15 +14,14 @@ public class FindItemByName implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        ConsoleOutput o = new ConsoleOutput();
         String name = input.askStr("Enter name!");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (int i = 0; i < items.length; i++) {
-                o.println(items[i]);
+                out.println(items[i]);
             }
         } else {
-            o.println("There is not item like that!!");
+            out.println("There is not item like that!!");
         }
         return true;
     }

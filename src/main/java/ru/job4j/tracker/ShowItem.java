@@ -14,10 +14,9 @@ public class ShowItem implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        ConsoleOutput o = new ConsoleOutput();
         Item[] items = tracker.findAll();
         for (int i = 0; i < items.length; i++) {
-            o.println(items[i]);
+            out.println(items[i]);
         }
         return true;
     }

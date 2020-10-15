@@ -14,15 +14,14 @@ public class ReplaceItem implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker track) {
-        ConsoleOutput o = new ConsoleOutput();
         int id = input.askInt("Which id");
         String name = input.askStr("Enter id");
         Item item = new Item(name);
         item.setName(name);
         if (track.replace(id, item)) {
-            o.println("You replaced item.");
+            out.println("You replaced item.");
         } else {
-            o.println("You did not replace your item!!");
+            out.println("You did not replace your item!!");
         }
         return true;
     }
