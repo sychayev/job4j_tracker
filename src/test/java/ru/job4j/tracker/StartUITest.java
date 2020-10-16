@@ -24,14 +24,13 @@ public class StartUITest {
 
     @Test
     public void whenReplaceItem() {
-
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
         item.getId();
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[]{"0", "Replace item", "1"}
+                new String[]{"0", "Replaced item", "1"}
         );
         UserAction[] actions = {
                 new ReplaceItem(out),
@@ -49,7 +48,7 @@ public class StartUITest {
         item.getId();
         String findAllAction = "All items";
         Input in = new StubInput(
-                new String[]{"0", "Replace item", "1"}
+                new String[]{"0", "Find all item", "1"}
         );
         UserAction[] actions = {
                 new FindAllAction(out),
@@ -58,6 +57,7 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findAll(), is(findAllAction));
     }
+
     @Test
     public void FindByIdAction() {
         Output out = new StubOutput();
@@ -75,6 +75,7 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(findByIdAction));
     }
+
     @Test
     public void whenDeleteItem() {
         Output out = new StubOutput();
