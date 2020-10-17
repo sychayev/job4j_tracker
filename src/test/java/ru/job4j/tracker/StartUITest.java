@@ -53,7 +53,7 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("ru.job4j.tracker.Item@7dc36524\r\n"));
+        assertThat(out.toString(), is("Menu\r\nItem{id=1, name='Show items'}\r\nMenu\r\n"));
     }
 
     @Test
