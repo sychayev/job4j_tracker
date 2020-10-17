@@ -41,21 +41,19 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindAllAction() {
+    public void whenShowItems() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Find all action items"));
-        item.getId();
-        String findAllAction = "All items";
+        Item item = tracker.add(new Item("Show items"));
         Input in = new StubInput(
-                new String[]{"0", "Find all item", "1"}
+                new String[]{"0", "1"}
         );
         UserAction[] actions = {
-                new FindAllAction(out),
+                new ShowItem(out),
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll(), is(findAllAction));
+        assertThat(out.toString(), is("ru.job4j.tracker.Item@7dc36524\r\n"));
     }
 
     @Test
@@ -69,7 +67,7 @@ public class StartUITest {
                 new String[]{"0", "Replace item", "1"}
         );
         UserAction[] actions = {
-                new FindAllAction(out),
+                new FindByIdAction(out),
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
