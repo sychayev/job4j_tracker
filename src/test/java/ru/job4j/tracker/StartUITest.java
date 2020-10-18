@@ -23,7 +23,6 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-//        assertThat(tracker.findAll()[0].getName(), is("item"));
         assertThat(out.toString(), is(("Menu") + s +
                 ("0.=== Create a new Action ====") + s +
                 ("1.Exit") + s +
@@ -42,7 +41,7 @@ public class StartUITest {
         item.getId();
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[]{"0", String.valueOf(item.getId()), "1"}
+                new String[]{"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
                 new ReplaceItem(out),
@@ -50,11 +49,11 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(("Menu") + s +
-                ("0. Replace item") + s +
+                ("0.Edit item!") + s +
                 ("1.Exit") + s +
-                ("Item{id=1, name='Replace items'}") + s +
+                ("You replaced item.") + s +
                 ("Menu") + s +
-                ("0. Replace item") + s +
+                ("0.Edit item!") + s +
                 ("1.Exit") + s));
     }
 
