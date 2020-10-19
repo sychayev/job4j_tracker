@@ -33,6 +33,30 @@ public class StartUITest {
     }
 
     @Test
+    public void whenFindItemByName() {
+        String s = System.lineSeparator();
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item i = new Item("item");
+        Input in = new StubInput(new String[]{"0",
+                String.valueOf(i.getId()),
+                "1"});
+        UserAction[] actions = {
+                new FindItemByName(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(("Menu") + s +
+                ("0.Find items by name") + s +
+                ("1.Exit") + s +
+                ("There is not item like that!!") + s +
+                ("Menu") + s +
+                ("0.Find items by name") + s +
+                ("1.Exit") + s));
+
+    }
+
+    @Test
     public void whenReplaceItem() {
         String s = System.lineSeparator();
         Output out = new StubOutput();
@@ -81,7 +105,7 @@ public class StartUITest {
     }
 
     @Test
-    public void FindByIdAction() {
+    public void whenFindByIdAction() {
         String s = System.lineSeparator();
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
@@ -91,7 +115,6 @@ public class StartUITest {
         );
         UserAction[] actions = {
                 new FindByIdAction(out),
-
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
@@ -138,20 +161,20 @@ public class StartUITest {
 //        Item expected = new Item("Fix PC");
 //        assertThat(created.getName(), is(expected));
 //    }
-//
+
 //    @Test
 //    public void whenReplaceItem() {
 //        Tracker tracker = new Tracker();
 //        Item item = new Item("new item");
 //        tracker.add(item);
 //        String[] answers = {
-//                String.valueOf( item.getId()),String.valueOf("C")
+//                String.valueOf(item.getId()), String.valueOf("C")
 //        };
 //        StartUI.replaceItem(new StubInput(answers), tracker);
 //        Item replaced = tracker.findById(item.getId());
 //        assertThat(replaced.getName(), is("C"));
 //    }
-//
+
 //    @Test
 //    public void whenDeleteItem() {
 //        Tracker tracker = new Tracker();
@@ -162,7 +185,7 @@ public class StartUITest {
 //        };
 //        StartUI.deleteItem(new StubInput(deletedItems), tracker);
 //        Item delet = tracker.findById(item.getId());
-//        assertThat(delet , is(nullValue()));
+//        assertThat(delet, is(nullValue()));
 //    }
 }
 
