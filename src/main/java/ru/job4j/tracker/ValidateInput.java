@@ -15,6 +15,7 @@ public ValidateInput(Output out,Input input){
         return in.askStr(question);
     }
 
+
     @Override
     public int askInt(String question) {
         boolean invalid = true;
