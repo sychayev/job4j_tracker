@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 public class ValidateInputTest {
 
-
     @Test
     public void whenInvalidInput() {
         Output out = new StubOutput();
@@ -16,7 +15,7 @@ public class ValidateInputTest {
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt( "Enter menu:");
-        assertThat(out.toString(),selected, is(1));
+        assertThat(out.toString(),selected, is("Please enter validate data again"));
     }
 
 
@@ -39,7 +38,7 @@ public class ValidateInputTest {
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
-        assertThat(out.toString(),selected, is(1));
+        assertThat(selected, is(1));
     }
 
     @Test
@@ -50,7 +49,7 @@ public class ValidateInputTest {
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
-        assertThat(out.toString(),selected, is(1));
+        assertThat(selected, is(1));
     }
 
 }
