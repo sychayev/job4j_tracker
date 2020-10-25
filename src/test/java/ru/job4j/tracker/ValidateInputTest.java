@@ -12,7 +12,7 @@ public class ValidateInputTest {
     public void whenInvalidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"one", "1"}
+                new String[]{"one", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
@@ -24,10 +24,10 @@ public class ValidateInputTest {
     public void whenRightInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"one", "1"}
+                new String[]{"one", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Please enter validate data again");
+        int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
     }
 
@@ -35,10 +35,10 @@ public class ValidateInputTest {
     public void whenNotRightInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"one", "1"}
+                new String[]{"one", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Please enter validate data again");
+        int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
     }
 
@@ -46,10 +46,10 @@ public class ValidateInputTest {
     public void whenCheckOutput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"one", "1"}
+                new String[]{"one", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Please enter validate data again");
+        int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
     }
 
